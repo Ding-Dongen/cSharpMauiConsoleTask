@@ -1,0 +1,35 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UserManagementApp.AddUserPage"
+             BackgroundColor="#4B0082">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Grid.Row="1" Grid.Column="1" 
+                     HorizontalOptions="Center" 
+                     VerticalOptions="Center">
+            
+            <Entry x:Name="nameEntry" Placeholder="Name" WidthRequest="300" />
+            <Entry x:Name="lastNameEntry" Placeholder="Last Name" WidthRequest="300" />
+            <Entry x:Name="emailEntry" Placeholder="Email" WidthRequest="300" />
+            <Entry x:Name="passwordEntry" Placeholder="Password" IsPassword="True" WidthRequest="300" />
+            <Entry x:Name="phoneNumberEntry" Placeholder="Phone Number" WidthRequest="300" />
+            <Entry x:Name="addressEntry" Placeholder="Address" WidthRequest="300" />
+            <Entry x:Name="zipCodeEntry" Placeholder="Zip Code" WidthRequest="300" />
+            <Entry x:Name="cityEntry" Placeholder="City" WidthRequest="300" />
+            <Button Text="Add User" Clicked="OnAddUserClicked" WidthRequest="300" />
+        </StackLayout>
+
+
+    </Grid>
+</ContentPage>

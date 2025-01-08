@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UserManagementApp.ListUsersPage"
+             BackgroundColor="#4B0082">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!-- Page Header -->
+            <RowDefinition Height="*" />
+            <!-- ListView -->
+        </Grid.RowDefinitions>
+
+        <!-- Page Header -->
+        <Label Text="Select a User"
+               FontSize="24"
+               FontAttributes="Bold"
+               TextColor="White"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               Padding="10"
+               Grid.Row="0" />
+
+        <!-- User List -->
+        <ListView x:Name="userListView" 
+                  ItemsSource="{Binding Users}" 
+                  SelectionMode="Single"
+                  ItemSelected="OnUserSelected"
+                  SeparatorVisibility="Default"
+                  SeparatorColor="Gray"
+                  Grid.Row="1">
+            <!-- Header for ListView -->
+            <ListView.Header>
+                <Grid Padding="10" ColumnSpacing="20" BackgroundColor="#4B0082">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <!-- Headers -->
+                    <Label Text="Name" 
+                           FontAttributes="Bold"
+                           FontSize="16"
+                           TextColor="White"
+                           HorizontalOptions="Start" />
+                    <Label Text="Email" 
+                           FontAttributes="Bold"
+                           FontSize="16"
+                           TextColor="White"
+                           HorizontalOptions="Start"
+                           Grid.Column="1" />
+                </Grid>
+            </ListView.Header>
+
+            <!-- Items Template -->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10" ColumnSpacing="20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Name -->
+                            <Label Text="{Binding Name}" 
+                                   FontAttributes="None"
+                                   Grid.Column="0" 
+                                   HorizontalOptions="Start" />
+                            <!-- Email -->
+                            <Label Text="{Binding Email}" 
+                                   FontAttributes="None"
+                                   Grid.Column="1" 
+                                   HorizontalOptions="Start" 
+                                   Margin="20,0,0,0" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>

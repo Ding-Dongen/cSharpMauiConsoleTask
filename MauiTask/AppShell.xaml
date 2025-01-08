@@ -1,0 +1,17 @@
+<Shell
+    x:Class="UserManagementApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:UserManagementApp"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <Tab Title="Edit/remove Users" Icon="user.png">
+            <ShellContent Route="ListUsers" ContentTemplate="{DataTemplate local:ListUsersPage}" />
+        </Tab>
+        <Tab Title="Add User" Icon="add_user.png">
+            <ShellContent Route="AddUserPage" ContentTemplate="{DataTemplate local:AddUserPage}" />
+        </Tab>
+    </TabBar>
+
+</Shell>
