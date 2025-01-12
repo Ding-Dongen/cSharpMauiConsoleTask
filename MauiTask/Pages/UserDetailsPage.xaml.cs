@@ -17,14 +17,14 @@ namespace UserManagementApp
 
             BindingContext = new
             {
-                User = _user, // User details
-                CancelCommand = new Command(async () => await Cancel()) // Command
+                User = _user, 
+                CancelCommand = new Command(async () => await Cancel())
             };
         }
 
         private async Task Cancel()
         {
-            await Navigation.PopAsync(); // Navigate back to the previous page
+            await Navigation.PopAsync();
         }
 
         private async void OnDeleteUserClicked(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace UserManagementApp
             {
                 await _userService.DeleteUserAsync(_user.Id.ToString());
                 await DisplayAlert("Deleted", $"{_user.Name} has been deleted.", "OK");
-                await Navigation.PopAsync(); // Return to the previous page
+                await Navigation.PopAsync(); 
             }
         }
 
@@ -46,7 +46,7 @@ namespace UserManagementApp
 
         public Command CancelCommand => new Command(async () =>
         {
-            await Navigation.PopAsync(); // Navigate back to the previous page
+            await Navigation.PopAsync(); 
         });
     }
 }

@@ -127,6 +127,7 @@ namespace cSharpConsoleApp
             Console.Write("Enter user email to update: ");
             string email = Console.ReadLine()!;
 
+            
             var user = _userService.GetAllUsersAsync().Result.FirstOrDefault(u => u.Email == email);
             if (user != null)
             {
@@ -147,6 +148,7 @@ namespace cSharpConsoleApp
                 Console.Write("Enter new city: ");
                 string newCity = Console.ReadLine()!;
 
+                
                 user.Name = string.IsNullOrWhiteSpace(newName) ? user.Name : newName;
                 user.LastName = string.IsNullOrWhiteSpace(newLastName) ? user.LastName : newLastName;
                 user.Email = string.IsNullOrWhiteSpace(newEmail) ? user.Email : newEmail;
@@ -156,14 +158,16 @@ namespace cSharpConsoleApp
                 user.ZipCode = newZipCode == 0 ? user.ZipCode : newZipCode;
                 user.City = string.IsNullOrWhiteSpace(newCity) ? user.City : newCity;
 
+               
                 _userService.EditUserAsync(user).Wait();
-                Console.WriteLine("User updated successfully.");
+               
             }
             else
             {
                 Console.WriteLine("User not found.");
             }
         }
+
 
         private void DeleteUser()
         {

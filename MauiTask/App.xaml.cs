@@ -15,6 +15,9 @@ namespace MauiTask
             _userService = userService;
         }
 
+        // Got it from Roger Dunder 
+        // It narrows down the window so it looks more like a mobile app
+
         protected override Window CreateWindow(IActivationState? activationState)
         {
                 if (DeviceInfo.Current.Platform.ToString() == "WinUI")

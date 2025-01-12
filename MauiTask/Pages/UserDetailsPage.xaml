@@ -7,14 +7,10 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <!-- User Details -->
             <RowDefinition Height="Auto" />
-            <!-- Action Buttons -->
             <RowDefinition Height="Auto" />
-            <!-- Cancel Button -->
         </Grid.RowDefinitions>
 
-        <!-- User Details Section -->
         <Grid Grid.Row="0" Padding="10" ColumnSpacing="20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -52,13 +48,11 @@
             <Label Text="{Binding User.City}" Grid.Row="6" Grid.Column="1" />
         </Grid>
 
-        <!-- Action Buttons -->
         <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="Center" Spacing="20" Padding="10,10,10,20">
             <Button Text="Delete Selected User" Clicked="OnDeleteUserClicked" />
             <Button Text="Edit Selected User" Clicked="OnEditUserClicked" />
         </StackLayout>
 
-        <!-- Cancel Button -->
         <StackLayout Grid.Row="2" HorizontalOptions="Center" Padding="0,0,0,20">
             <Button Text="Cancel"
                     Command="{Binding CancelCommand}"

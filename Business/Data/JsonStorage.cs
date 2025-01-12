@@ -19,7 +19,7 @@ namespace Business.Data
         private string GetFilePath()
         {
             // Here you define a common place for the file. This example uses AppData for simplicity,
-            // but you might want a shared location or cloud storage for true cross-platform sharing.
+            // but you might want a shared location or cloud storage for true cross-platform sharing. Although i never got it the save on the moblile device... Got the device working though :) 
 #if ANDROID
             return Path.Combine(FileSystem.AppDataDirectory, FileName);
 #else
@@ -29,14 +29,14 @@ namespace Business.Data
 
         public void Save(User user)
         {
-            var users = GetAll();
 
-            
+            var users = GetAll();
             var existingUser = users.FirstOrDefault(u => u.Id == user.Id);
             if (existingUser != null)
             {
-                
+                Console.WriteLine("Updated existing user succesfully.");
                 existingUser.Name = user.Name;
+                Console.WriteLine();
                 existingUser.LastName = user.LastName;
                 existingUser.Email = user.Email;
                 existingUser.Password = user.Password;
@@ -47,11 +47,10 @@ namespace Business.Data
             }
             else
             {
-              
+                Console.WriteLine("Adding new user.");
                 users.Add(user);
             }
 
-            
             var json = JsonSerializer.Serialize(users, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(_filePath, json);
         }

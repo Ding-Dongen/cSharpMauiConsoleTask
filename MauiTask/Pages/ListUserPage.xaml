@@ -7,12 +7,9 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <!-- Page Header -->
             <RowDefinition Height="*" />
-            <!-- ListView -->
         </Grid.RowDefinitions>
 
-        <!-- Page Header -->
         <Label Text="Select a User"
                FontSize="24"
                FontAttributes="Bold"
@@ -22,7 +19,7 @@
                Padding="10"
                Grid.Row="0" />
 
-        <!-- User List -->
+
         <ListView x:Name="userListView" 
                   ItemsSource="{Binding Users}" 
                   SelectionMode="Single"
@@ -30,14 +27,14 @@
                   SeparatorVisibility="Default"
                   SeparatorColor="Gray"
                   Grid.Row="1">
-            <!-- Header for ListView -->
+
             <ListView.Header>
                 <Grid Padding="10" ColumnSpacing="20" BackgroundColor="#4B0082">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <!-- Headers -->
+
                     <Label Text="Name" 
                            FontAttributes="Bold"
                            FontSize="16"
@@ -52,7 +49,7 @@
                 </Grid>
             </ListView.Header>
 
-            <!-- Items Template -->
+
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -62,12 +59,11 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
-                            <!-- Name -->
+
                             <Label Text="{Binding Name}" 
                                    FontAttributes="None"
                                    Grid.Column="0" 
                                    HorizontalOptions="Start" />
-                            <!-- Email -->
                             <Label Text="{Binding Email}" 
                                    FontAttributes="None"
                                    Grid.Column="1" 
